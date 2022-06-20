@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% import 'components/review.html' as review %}
+{% import 'components/book.html' as book %}
+{% block content %}
+<div class="container">
+  <div class="accountInfo">
+    <div class="underline">
+      <div class="sectionTitle">
+        Account info
+      </div>
+    </div>
+    <div class="">
+      <div>
+        <div>
+          <div class="property inline">
+            Name
+          </div>
+          <div class="value inline">
+            {{user.name}}
+          </div>
+        </div>
+        <div>
+          <div class="property inline">
+            Email
+          </div>
+          <div class="value inline">
+            {{user.email}} 
+          </div>
+        </div>
+      </div>
+      <div class="buttons">
+        <a href="{{url_for('main.profile_edit')}}">
+          <button id="edit">EDIT</button>
+        </a>
+        <a href="{{url_for('main.profile_change_password')}}">
+          <button id="change">CHANGE PASSWORD</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="myReviews">
+    <div class="underline">
+      <div class="sectionTitle">
+        My reviews
+      </div>
+    </div>
+    <div class="reviews section">
+      {% for r in reviews %}
+        {{ review.reviewComponent(r) }}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="bookRead">
+    <div class="underline">
+      <div class="sectionTitle">
+        Books read
+      </div>
+    </div>
+    <div class="books section">
+      {% for b in favs %}
+          {{ book.bookComponent(b) }}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="booksToRead">
+    <div class="underline">
+      <div class="sectionTitle">
+        Books to read
+      </div>
+    </div>
+    <div class="books section">
+      {% for b in wishes%}
+          {{ book.bookComponent(b) }}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

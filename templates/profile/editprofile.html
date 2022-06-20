@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="accountEdit middle">
+    <div class="underline">
+      <div class="sectionTitle">
+        Account info
+      </div>
+    </div>
+    <div class="section">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          <div class="notification is-danger">
+              {{ messages[0] }}
+          </div>
+      {% endif %}
+      {% endwith %}
+      <form method="POST" action="/profile/edit">
+        <div>
+          <div>
+            <div class="property">
+              Name
+            </div>
+            <div class="value">
+                <input type="textfield" value="{{user.name}}" name="name">
+            </div>
+            <div class="property">
+              Email
+            </div>
+            <div class="value">
+              <input type="email" value="{{user.email}}" name="email">
+            </div>
+          </div>
+            <button id="submitProfile">SUBMIT</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
