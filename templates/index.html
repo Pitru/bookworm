@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% import 'components/book.html' as book %}
+{% import 'components/review.html' as review %}
+
+<div>
+    <div class="latestReviews">
+        <div class="underline">
+            <div class="sectionTitle">
+                Latest reviews
+            </div>
+        </div>
+        <div class="reviews section">
+            {% for r in reviews %}
+                {{ review.reviewComponent(r, main_page) }}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="highestRatedBooks">
+        <div class="underline">
+            <div class="sectionTitle">
+                <span>Highest rated books</span>
+            </div>
+        </div>
+        <div class="books section">
+            {% for b in books%}
+                {{ book.bookComponent(b, main_page) }}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
