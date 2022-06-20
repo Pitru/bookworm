@@ -10,7 +10,5 @@ Example accounts with passwords
 |Mail|Password|
 |---|---|
 |piotr@mail.com|piotrek|
-
 |krzysiek@mail.com|krzysiek|
-
 |marta@mmail.com|marta|
