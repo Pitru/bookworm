@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bookworm</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}" />
+
+    <!-- Font roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/503a5fc222.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="hero-head">
+        <nav class="navbar">
+            <div class="navigation">
+                <div class="pageTitle">
+                <a href="{{ url_for('main.index') }}" id="mainPage">
+                    <span>Bookworm</span>
+                </a>
+            </div>
+            <div class="searchMenu">
+                <form action="/search" method="GET" class="inline">
+                    <input name="q" type="textfield" id="searchField" value="{{ last_search }}"/>
+                    <button id="searchCommit" ><span class="fa fa-magnifying-glass"></span></button>
+                </form>
+            </div>
+
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('main.profile') }}" class="navbar-item name">
+                        {{current_user}}
+                    </a>
+                    {% endif %}
+                    {% if not current_user.is_authenticated %}
+                    <a href="{{ url_for('auth.login') }}" class="navbar-item system-action">
+                        <span class="fa fa-sign-in" aria-hidden="true"></span>
+                    </a>
+                    {% endif %}
+                    {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('auth.logout') }}" class="navbar-item system-action">
+                        <span class="fa fa-sign-out" aria-hidden="true"></span>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            </div>
+            
+        </nav>
+    </div>
+
+    <div class="page">
+        <div class="page-content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>
