@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% import 'components/book_wide.html' as book %}
+
+{% block content %}
+    <div class="books">
+        <div class="underline">
+            <div class="sectionTitle">
+                <span>Books</span>
+            </div>
+        </div>
+    </div>
+    <div class="flex-display">
+        {% for b in books%}
+            {{ book.bookComponent(b) }}
+        {% endfor %}
+    </div>
+{% endblock %}

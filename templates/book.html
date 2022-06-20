@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="book-page">
+    <div>
+        {% if 'error' in book %}
+        <span>Book not found</span>
+        {% else %}
+        <div class="book-content">
+            <div class="book-cover abc">
+                {% if book.cover!="" %}
+                    <img src="{{ book.cover }}" class="book-cover"/>
+                {% else %}
+                    <p>No image available</p>
+                {% endif %}
+            </div>
+            <div class="">
+                <div class="book-title">
+                    <span>{{book.title}}</span>
+                </div>
+                <div class="book-authors">
+                {% if book.authors|length==0 %}
+                    no author
+                {% elif book.authors|length >=1 %}
+                    {% for author in book.authors[:-1] %}
+                        {{ author.name }},
+                    {% endfor %}
+                        {{ book.authors[-1].name }}
+                {% endif %}
+                </div>
+                <div class="book-description">
+                    <span>{{ book.description|safe }}</span>
+                </div>
+            </div>
+            {%if user_options %}
+            <div class="book-options">
+                <div class="property-option inline">
+                    <span>Review</span>
+                </div>
+                <a href="{{url_for('main.add_review',id=book.id)}}" class="option inline">
+                    {% if not has_review %}
+                        <button name="">Add</button>
+                    {% else %}
+                        <button name="">Edit</button>
+                    {% endif %}
+                </a></br>
+                <div class="property-option inline">
+                    <span>Favourites</span>
+                </div>
+                <a href="{{url_for('main.add_to_favourites',id=book.id)}}" class="option inline">
+                    {% if not in_fav_list %}
+                        <button name="" class="add opt"><span class="fa fa-plus"></span></button>
+                    {% else %}
+                        <button name="" class="remove opt"><span class="fa fa-minus"></span></button>
+                    {% endif %}
+                </a></br>
+                <div class="property-option inline">
+                    <span>Wish</span>
+                </div>
+                <a href="{{url_for('main.add_to_wishes',id=book.id)}}" class="option inline">
+                    {% if not in_wish_list %}
+                        <button name="" class="add opt"><span class="fa fa-plus"></span></button>
+                    {% else %}
+                        <button name="" class="remove opt"><span class="fa fa-minus"></span></button>
+                    {% endif %}
+                </a></br>
+            {% endif %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

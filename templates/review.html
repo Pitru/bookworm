@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="middle">
+    <div class="content">
+        <div class="book-cover review-cover">
+            {% if book.cover_link!="" %}
+            <img src="{{ book.cover_link }}" class="book-cover-med"/>
+            {% else %}
+            <p>No image available</p>
+            {% endif %}
+        </div>
+        <div class="review-data">
+            <div class="book-info">
+                <div class="book-title">
+
+                    <span>{{book.title}}</span>
+                </div>
+                <div class="book-authors">
+                    by
+                    {% if book.authorship|length==0 %}
+                        no author
+                    {% elif book.authorship|length >=1 %}
+                        {% for author in book.authorship[:-1] %}
+                            {{ author.name }},
+                        {% endfor %}
+                            {{ book.authorship[-1].name }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="review-options">
+                <form action="/book/{{book.google_id}}/review" method="POST">
+                    <div class="inline review-text">
+                        <p>
+                            Review text
+                        </p>
+                        <textarea name="text" cols="30" rows="10" >{{text|safe}}</textarea>
+                    </div>  
+                    <div class="inline score">
+                        <p>
+                            Score
+                        </p>
+                        <select name="score" id="score">
+                            {% for s in [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0] %}
+                                {% if s==score%}
+                                <option selected="selected">{{s}}</option>
+                                {% else %}
+                                <option>{{s}}</option>
+                                {% endif %}
+                            {% endfor %}
+                            
+                        </select>
+                    </div>
+                    <br>
+                    <button id="review-submit">Submit</button>
+                </form>
+                {% if delete %}
+                <form action="/book/{{book.google_id}}/review/delete" method="GET">
+                    <button name="remove_review" class="review-delete">Delete review</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
