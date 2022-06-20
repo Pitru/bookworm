@@ -1,0 +1,36 @@
+{% macro bookComponent(book) -%}
+<div class="frame">
+    <div class="content book">
+        <div class="book-cover-small">
+            {% if book.cover!="" %}
+                <img src="{{ book.cover }}" class="book-cover-small"/>
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
+        </div>
+        <div>
+            <div class="title">
+                <a href="{{url_for('main.book', id=book.id)}}"> 
+                    <span>{{book.title}}</span>
+                </a>
+            </div>
+            <div class="authors">
+                {% if book.authors|length==0 %}
+                    no author
+                {% elif book.authors|length >=1 %}
+                    {% for author in book.authors[:-1] %}
+                        {{ author }},
+                    {% endfor %}
+                        {{ book.authors[-1].name }}
+                {% endif %}
+            </div>
+            <div class="description">
+                <span>{{book.description[0:100]}}...</span>
+            </div>
+            <div class="rating">
+                <span>{{book.rating}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+{%- endmacro %}

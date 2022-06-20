@@ -1,0 +1,11 @@
+{% macro star_rating(rating) -%}
+    {% for a in range(1,6) %}
+        {% if rating >= a %}
+        <span class="fa-solid fa-star"></span>
+        {% elif rating+0.5 >= a %}
+        <span class="fa-solid fa-star-half-stroke"></span>
+        {% else %}
+        <span class="fa-regular fa-star"></span>
+        {% endif %}
+    {% endfor %}
+{%- endmacro %}

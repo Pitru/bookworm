@@ -1,0 +1,36 @@
+{% macro bookComponent(book, rating_visible) -%}
+
+{% import 'components/star-rating.html' as stars %}
+<div class="frame">
+    <div class="book">
+        <div>
+            {% if book.cover!="" %}
+                <img src="{{ book.cover_link }}" class="book-cover-small"/>
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
+        </div>
+        <div class="info">
+            <div class="title">
+                <a href="{{url_for('main.book', id=book.google_id)}}"> 
+                    <span>{{book.title}}</span>
+                </a>
+            </div>
+            <div class="author">
+                <span>
+                    {% for author in book.authorship %}
+                    {{ author.name }}
+                    {% endfor %}
+                </span>
+            </div>
+            {% if rating_visible %}
+            <div class="book-rating rating">
+                <span>Rating </span>
+                <span>{{book.score}}</span>
+                {{ stars.star_rating(book.score) }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{%- endmacro %}

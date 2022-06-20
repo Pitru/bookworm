@@ -1,0 +1,31 @@
+{% macro reviewComponent(review, main_page) -%}
+{% import 'components/star-rating.html' as stars %}
+<div class="frame">
+    <div class="review">
+        <div class="review-title">
+            <a href="{{url_for('main.book', id=review.book.google_id)}}" class="title">
+                <span>{{review.book.title}}</span>
+            </a>
+        </div>
+        <div class="review-text">
+            <span>{{ review.review_text[:95] }}</span>
+            {% if review.review_text|length > 95 %} 
+            ...
+            {% endif %}
+        </div>
+        <div class="review-date">
+            <span>{{review.date.strftime("%d.%m.%y") }}</span>
+        </div>
+        <div class="review-rating rating">
+            {{ stars.star_rating(review.score) }}
+        </div>
+        {% if not main_page%}
+        <div class="review-edit">
+            <a href="{{url_for('main.add_review', id=review.book.google_id)}}">
+                <span class="fa fa-edit"></span>    
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{%- endmacro %}
