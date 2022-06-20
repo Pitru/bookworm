@@ -1,0 +1,528 @@
+﻿:root {
+  --primary: #FEFFDE;
+  --secondary: #DDFFBC;
+  --mild: #91C788;
+  --dark: #52734D;
+  --shadow: rgba(0, 0, 0, 0.35)
+}
+
+body {
+  margin:0px;
+  background-color:var(--primary);
+  width:100%;
+  text-align:left;
+  font-family:"Roboto", sans-serif;
+  font-weight:300;
+  color:var(--dark)
+}
+
+.container{
+  padding: 0px;
+}
+
+.flex-display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.frame {
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: solid 1px var(--dark);
+  margin: 10px;
+  background-color: var(--mild);
+  box-shadow: 0 0 5px var(--shadow);
+}
+
+.page {
+  background-color: var(--primary);
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.books{
+  margin-bottom: 20px;
+}
+
+.content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 920px;
+}
+
+.page-content {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: var(--secondary);
+}
+
+.underline {
+  width: 400px;
+  border-bottom-color: var(--dark);
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+.value {
+  padding-left: 30px;
+}
+
+.rating {
+  color: #d6fc4d;
+}
+
+.review {
+  width: 350px;
+  height: 200px;
+  position: relative;
+}
+
+.review-rating {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  font-size: 20px;
+  text-shadow: 0 0 2px var(--shadow);
+}
+
+.review-date{
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+}
+
+.review-title{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.review-text {
+  text-align: left;
+  font-size: 24px;
+  color: #333;
+}
+
+.review-edit{
+  position: absolute;
+  font-size: 20px;
+  right: -10px;
+  top: 0;
+}
+
+.description {
+  color: var(--dark)
+}
+
+.book-description{
+  width: 800px;
+}
+
+.book-options{
+  position: absolute;
+  right: 0;
+}
+
+.property-option{
+  font-weight: 700;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  width: 100px;
+  margin-right: 20px;
+}
+
+.authors {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.opt{
+  padding: 0;
+  font-size: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+.opt:hover{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.add{
+  color: chartreuse;
+}
+.add:hover{
+  color: chartreuse;
+  text-shadow: 0 0 5px chartreuse;
+}
+
+.remove{
+  color: crimson;
+}
+.remove:hover{
+  color: crimson;
+  text-shadow: 0 0 5px crimson;
+}
+
+.book-content{
+  display: flex;
+  position: relative;
+}
+
+.book-cover-small{
+  padding-right: 20px;
+  width: 120px;
+  height: 160px;
+}
+
+.review-cover{
+  margin-top: 25px;
+}
+
+.book-cover-med{
+  width: 240px;
+  height: 320px;
+}
+
+.book {
+  display: flex;
+  flex-wrap: nowrap;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 350px;
+  height: 180px;
+}
+
+.info{
+  position: relative;
+  width: 200px;
+}
+
+.book-title {
+  color: var(--dark);
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.book-authors {
+  color: var(--dark);
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.book-rating{
+  position: absolute;
+  bottom: 0;
+}
+
+.navbar-item {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.navbar {
+  background-color: var(--mild);
+  padding-bottom: 10px;
+  height: 60px;
+}
+
+.navigation{
+  padding-top: 10px;
+}
+
+.navbar-menu {
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  right: 5%;
+}
+
+.hero-body {
+  background-color: var(--secondary);
+}
+
+.pageTitle{
+  margin-left: 5%;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.searchMenu{
+  display: inline-block;
+  margin-left: 200px;
+}
+
+.property{
+  font-weight: 700;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.middle {
+  width: min-content;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-field {
+  background-color: rgba(0,0,0, 0.08);
+  border-radius: 20px;
+  width: fit-content;
+  margin-top: 30px;
+  padding: 30px 30px 40px 40px;
+}
+
+.inline {
+  display: inline-block;
+}
+
+button{
+  color: var(--primary);
+  font-size: 24px;
+  background-color: var(--dark);
+  border-radius: 10px;
+  border-width: 0px;
+  margin: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  box-shadow: 0 0 5px var(--shadow);
+}
+
+button:hover{
+  cursor: pointer;
+  color: var(--dark);
+  background-color: var(--primary);
+}
+
+#searchField {
+  border-radius: 20px;
+  height: 40px;
+  width: 400px;
+  font-size: 24px;
+  padding-left: 30px;
+  background-color: var(--secondary);
+}
+
+.remember {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+input[type=checkbox]{
+  background-color: var(--dark);
+  border: solid 1px var(--primary);
+}
+input[type=checkbox]:hover{
+  cursor: pointer;
+  background-color: var(--primary);
+}
+
+input[type=textfield], input[type=email], input[type=password] {
+  height: 30px;
+  font-size: 20px;
+  box-shadow: 2px 2px 5px var(--dark);
+  border: solid 1px var(--mild);
+  border-radius: 10px;
+  background-color: var(--primary);
+  padding-left: 10px;
+  color: var(--dark);
+}
+
+input[type=textfield]:focus-visible, input[type=email]:focus-visible, input[type=password]:focus-visible  {
+  outline-color: var(--dark);
+  outline-width: 0px;
+  background-color: var(--primary);
+}
+
+#edit {
+  margin: 0;
+}
+
+#change {
+  color: var(--dark);
+  background-color: var(--primary);
+}
+
+#change:hover{
+  color: var(--primary);
+  background-color: var(--dark);
+}
+
+.buttons {
+  margin-top: 20px
+}
+
+.book-cover{
+  /* margin-top: 25px; */
+  margin-right: 20px;
+  border: 1px solid var(--dark);
+  width: 240px;
+  height: 320px;
+  text-align: center;
+}
+
+.book-info{
+  margin-top: 20px;
+}
+
+.review-data{
+  width: 600px;
+  padding: 10px;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+.review-options {
+  margin-top: 30px;
+  background-color: rgba(0,0,0, 0.08);
+  border-radius: 20px;
+  padding: 10px;
+  padding-left: 30px;
+}
+
+.review-delete{
+  color: crimson;
+  background-color: var(--primary);
+  box-shadow: 0 0 5px var(--shadow);
+}
+
+.review-delete:visited{
+  color: crimson;
+  background-color: var(--primary);
+  box-shadow: 0 0 5px var(--shadow);
+}
+
+.review-delete:hover{
+  color: var(--primary);
+  background-color: crimson;
+  box-shadow: 0 0 5px crimson;
+}
+
+.accountEdit {
+  background-color: rgba(0,0,0, 0.08);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+textarea {
+  border-radius: 10px;
+  border: 1px solid #333;
+  background-color: var(--primary);
+  resize: none;
+  font-size: 16px;
+  padding: 10px;
+}
+
+textarea:focus-visible{
+  outline-width: 0px;
+}
+
+.score{
+  position: relative;
+  top: -185px;
+  margin-left: 75px;  
+  box-sizing: border-box;
+  width: 100px;
+  font-weight: 700;
+}
+
+select{
+  height: 30px;
+  width: 50px;
+  font-size: 16px;
+  background-color: var(--primary);
+  color: var(--dark);
+  border-radius: 10px;
+  border: 1px solid var(--dark);
+}
+
+#searchCommit {
+  text-shadow: 0 0 5px var(--secondary);
+  left: -40px;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  padding: 5px;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--dark);
+}
+
+#searchCommit:hover {
+  color: var(--secondary);
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+.name{
+  margin-right: 20px;
+}
+
+.system-action:hover{
+  color: var(--primary);
+}
+
+#login {
+  background-color: var(--primary);
+  border: solid 1px var(--dark);
+  color: var(--dark);
+}
+
+#login:hover{
+  background-color: var(--dark);
+  color: var(--primary);
+}
+
+.pageTitle {
+  font-size: 36px;
+}
+
+a:link {
+  color: var(--dark);
+  text-decoration: none;
+}
+a:visited{
+  color: var(--dark);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--secondary);
+  text-decoration: none;
+  cursor: pointer;
+}
+a:active {
+  color: var(--secondary);
+  text-decoration: none;
+}
