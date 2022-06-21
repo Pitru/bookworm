@@ -9,7 +9,7 @@ def search_in_googlebooks(keyword):
     for i in items:
         id = ""
         title="" 
-        authors="no authors" 
+        authors="" 
         description="no description"
         cover = ""
         try:
